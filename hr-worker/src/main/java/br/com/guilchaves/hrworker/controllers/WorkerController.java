@@ -27,15 +27,14 @@ public class WorkerController {
     private WorkerService service;
 
     @GetMapping
-    public ResponseEntity<List<WorkerDTO>> findAll(){
+    public ResponseEntity<List<WorkerDTO>> findAll() {
         List<WorkerDTO> dto = service.findAll();
         return ResponseEntity.ok(dto);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<WorkerDTO> findById(@PathVariable Long id){
+    public ResponseEntity<WorkerDTO> findById(@PathVariable Long id) {
         logger.info("PORT: " + env.getProperty("local.server.port"));
-
         WorkerDTO dto = service.findById(id);
         return ResponseEntity.ok(dto);
     }
